@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Lotto Master - ระบบเจ้ามือ (Fixed Line Summary)</title>
+    
     <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkxvdHRvIE1hc3RlciIsCiAgInNob3J0X25hbWUiOiAiTG90dG8iLAogICJzdGFydF91cmwiOiAiLiIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiI2YxZjUfOSIsCiAgInRoZW1lX2NvbG9yIjogIiMyNTYzZWIiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJodHRwczovL2Nkbi1pY29ucy1wbmcuZmxhdGljb24uY29tLzUxMi8yOTExLzI5MTEwNTYucG5nIiwKICAgICAgInNpemVzIjogIjUxMng1MTIiLAogICAgICAidHlwZSI6ICJpbWAGEvcG5nIgogICAgfQogIF0KfQ==">
-<script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('data:text/javascript;base64,c2VsZi5hZGRFdmVudExpc3RlbmVyKCdmZXRjaCcsIGV2ZW50ID0+IHsgZXZlbnQucmVzcG9uZFdpdGgoZmV0Y2goZXZlbnQucmVxdWVzdCkpOyB9KTs=');
-        });
-    }
-</script>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Lotto Master">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2911/2911056.png">
+
+    <script>
+        // Service Worker สั้นๆ เพื่อให้ Browser ยอมรับว่าเป็นแอป
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('data:text/javascript;base64,c2VsZi5hZGRFdmVudExpc3RlbmVyKCdmZXRjaCcsIGV2ZW50ID0+IHsgZXZlbnQucmVzcG9uZFdpdGgoZmV0Y2goZXZlbnQucmVxdWVzdCkpOyB9KTs=');
+            });
+        }
+    </script>
+
     <style>
         :root { --primary: #2563eb; --danger: #ef4444; --success: #22c55e; --dark: #1e293b; --light: #f8fafc; --line: #06c755; }
         body { font-family: sans-serif; background: #f1f5f9; padding: 10px; margin: 0; color: var(--dark); }
