@@ -10,15 +10,14 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Lotto Master">
     <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2911/2911056.png">
-
-    <script>
-        // Service Worker สั้นๆ เพื่อให้ Browser ยอมรับว่าเป็นแอป
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('data:text/javascript;base64,c2VsZi5hZGRFdmVudExpc3RlbmVyKCdmZXRjaCcsIGV2ZW50ID0+IHsgZXZlbnQucmVzcG9uZFdpdGgoZmV0Y2goZXZlbnQucmVxdWVzdCkpOyB9KTs=');
-            });
-        }
-    </script>
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            // เปลี่ยนจาก data:base64 เป็นชื่อไฟล์ตรงๆ
+            navigator.serviceWorker.register('./service-worker.js');
+        });
+    }
+</script>
 
     <style>
         :root { --primary: #2563eb; --danger: #ef4444; --success: #22c55e; --dark: #1e293b; --light: #f8fafc; --line: #06c755; }
