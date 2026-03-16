@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lotto Master - ระบบเจ้ามือ (Fixed Line Summary)</title>
     <link rel="manifest" href="manifest.json">
 
 <script>
@@ -14,7 +15,7 @@
         });
     }
 </script>
-    <style>
+  <style>
         :root { --primary: #2563eb; --danger: #ef4444; --success: #22c55e; --dark: #1e293b; --light: #f8fafc; --line: #06c755; }
         body { font-family: sans-serif; background: #f1f5f9; padding: 10px; margin: 0; color: var(--dark); }
         .card { background: white; padding: 12px; border-radius: 12px; margin-bottom: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
@@ -303,17 +304,6 @@
     function deleteEntry(idx) { entries.splice(idx,1); saveAndRender(); }
     function clearAll() { if(confirm("ล้างใหม่?")) { localStorage.removeItem('entries_final'); location.reload(); } }
     renderLimits(); saveAndRender();
-</script>
-    <link rel="manifest" href="manifest.json">
-
-<script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('sw.js')
-                .then(reg => console.log('Service Worker Registered'))
-                .catch(err => console.log('Service Worker Failed', err));
-        });
-    }
 </script>
 </body>
 </html>
