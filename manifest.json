@@ -1,11 +1,11 @@
 {
-  "name": "ระบบจดหวย Pro - Mobile",
+  "name": "Lotto Master Pro 2026",
   "short_name": "จดหวย Pro",
-  "description": "ระบบบันทึกและตรวจรางวัลลอตเตอรี่",
+  "description": "ระบบจดหวยและดีดออกอัตโนมัติ",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#f0f4f8",
-  "theme_color": "#4a90e2",
+  "background_color": "#f5f3ff",
+  "theme_color": "#7c3aed",
   "orientation": "portrait",
   "icons": [
     {
