@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Lotto Master Pro 2026</title>
     <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#4a90e2">
+    <meta name="theme-color" content="#7c3aed">
     <style>
         :root { --primary: #a78bfa; --danger: #fda4af; --success: #86efac; --dark: #4b5563; --bg: #f5f3ff; }
         body { font-family: sans-serif; background: var(--bg); padding: 10px; margin: 0; color: var(--dark); }
@@ -34,33 +34,27 @@
         .text-success { color: #059669; font-weight: bold; }
         .hidden { display: none !important; }
         @media print { 
-            body { background: white; padding: 0; }
-            .no-print, .col-rej, .rej-line, .btn-del, .action-right, .card:has(h3:contains("ตั้งค่า")), .card:has(h3:contains("จดรายการใหม่")), #settingsArea, input, select, .btn-grid { display: none !important; } 
-            .card { box-shadow: none !important; border: none !important; margin: 0; padding: 10px; width: 100%; display: block !important; }
-            h3 { font-size: 18px; color: black; border-bottom: 1px solid #000; padding-bottom: 5px; }
-            table { border: 1px solid #000; margin-top: 10px; width: 100%; }
-            th { background: #eee !important; color: black !important; border: 1px solid #000; }
-            td { border: 1px solid #000; color: black !important; }
-            .summary-box { border: 1px solid #000; background: none !important; }
+            .no-print, .btn-del, .action-right, #settingsArea, input, select, .btn-grid { display: none !important; } 
+            .card { box-shadow: none !important; border: none !important; margin: 0; padding: 10px; width: 100%; }
         }
     </style>
 </head>
 <body>
 
     <div class="card no-print">
-        <h3 onclick="toggleSettings()" style="cursor:pointer">ตั้งค่า <span>▼</span></h3>
+        <h3 onclick="toggleSettings()" style="cursor:pointer">⚙️ ตั้งค่า <span>▼</span></h3>
         <div id="settingsArea" class="hidden">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                 <div><small>2 ตัว (บาทละ):</small><input type="number" id="rate2" value="65"></div>
                 <div><small>3 ตัว (บาทละ):</small><input type="number" id="rate3" value="500"></div>
             </div>
             <div><small>เพดานสูงสุด (บาท/เลข):</small><input type="number" id="globalLimit" value="750" oninput="renderAll()"></div>
-            <div><small>เลขอั้น (จ่ายครึ่ง เช่น 12,34):</small><input type="text" id="limitNumbers" placeholder="12,34" oninput="renderAll()"></div>
+            <div><small>🚫 เลขอั้น (จ่ายครึ่ง เช่น 12,34):</small><input type="text" id="limitNumbers" placeholder="12,34" oninput="renderAll()"></div>
         </div>
     </div>
 
     <div class="card no-print">
-        <h3>จดรายการใหม่</h3>
+        <h3>📝 จดรายการใหม่</h3>
         <input type="text" id="billName" placeholder="ชื่อลูกค้า">
         <div class="input-row">
             <select id="lottoType" onchange="toggleLottoInputs()">
@@ -80,7 +74,7 @@
     </div>
 
     <div class="card" id="currentBillCard" style="display:none;">
-        <h3>บิล: <span id="curBillTitle"></span></h3>
+        <h3>🧾 บิล: <span id="curBillTitle"></span></h3>
         <table>
             <thead><tr><th>เลข</th><th>บน</th><th>ล่าง</th><th class="col-rej">ดีด</th><th class="no-print">ลบ</th></tr></thead>
             <tbody id="billBody"></tbody>
@@ -95,7 +89,7 @@
 
     <div id="historySection">
         <div class="card">
-            <h3>ประวัติลูกค้า</h3>
+            <h3>👤 ประวัติลูกค้า</h3>
             <table>
                 <thead><tr><th style="text-align:left; padding-left:15px;">ชื่อบิล</th><th style="text-align:right; padding-right:15px;">ยอดสุทธิ</th></tr></thead>
                 <tbody id="allBillsBody"></tbody>
@@ -103,20 +97,16 @@
         </div>
 
         <div class="card">
-            <h3>รายการรวม</h3>
+            <h3>📊 รายการรวม</h3>
             <table>
                 <thead><tr><th>เลข</th><th>บน</th><th>ล่าง</th><th class="col-rej">ดีด</th></tr></thead>
                 <tbody id="summaryBody"></tbody>
             </table>
             <div class="summary-box" id="globalSummaryBox"></div>
-            <div class="no-print action-right">
-                <button onclick="sendLineAll()" class="btn-line">ส่ง Line</button>
-                <button onclick="window.print()" class="btn-print">ปริ้น</button>
-            </div>
         </div>
 
         <div class="card">
-            <h3>รายการดีดออกรวม</h3>
+            <h3>🚫 รายการดีดออกรวม</h3>
             <table>
                 <thead><tr><th>เลข</th><th>ประเภท</th><th>ยอดดีด</th></tr></thead>
                 <tbody id="rejectTableBody"></tbody>
@@ -128,7 +118,7 @@
         </div>
 
         <div class="card no-print">
-            <h3>ตรวจรางวัล</h3>
+            <h3>🏆 ตรวจรางวัล</h3>
             <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 60px; gap: 8px;">
                 <input type="number" id="win3T" placeholder="3บน"><input type="number" id="win2T" placeholder="บน"><input type="number" id="win2B" placeholder="ล่าง">
                 <button onclick="checkWin()" class="btn-dark">ตรวจ</button>
@@ -148,37 +138,36 @@
     window.onload = function() {
         if(currentBillEntries.length > 0) { showWorkingMode(true); document.getElementById('curBillTitle').innerText = currentBillEntries[0].bill; renderCurrentBill(); }
         renderAll();
+        if ('serviceWorker' in navigator) { navigator.serviceWorker.register('./sw.js'); }
     };
 
-    function showWorkingMode(isWorking) { document.getElementById('currentBillCard').style.display = isWorking ? 'block' : 'none'; document.getElementById('historySection').style.display = isWorking ? 'none' : 'block'; }
+    function showWorkingMode(isW) { document.getElementById('currentBillCard').style.display = isW ? 'block' : 'none'; document.getElementById('historySection').style.display = isW ? 'none' : 'block'; }
     function clearInputs() { document.getElementById('lottoNum').value = ''; document.getElementById('lottoTop').value = ''; document.getElementById('lottoBottom').value = ''; document.getElementById('lottoNum').focus(); }
+    function toggleSettings() { document.getElementById('settingsArea').classList.toggle('hidden'); }
+    function limitNum(el) { let m = document.getElementById('lottoType').value === '3ตัว' ? 3 : 2; if(el.value.length > m) el.value = el.value.slice(0, m); }
+    function toggleLottoInputs() { document.getElementById('lottoBottom').style.display = (document.getElementById('lottoType').value === '2ตัว') ? 'block' : 'none'; clearInputs(); }
 
     function addLotto() {
         const bill = document.getElementById('billName').value; if(!bill) return alert("ระบุชื่อลูกค้า");
         const type = document.getElementById('lottoType').value, num = document.getElementById('lottoNum').value;
         const top = parseInt(document.getElementById('lottoTop').value) || 0, bot = parseInt(document.getElementById('lottoBottom').value) || 0;
         if(!num) return;
-        const ts = Date.now();
-        if(top > 0) currentBillEntries.push({ bill, type: (type === '3ตัว' ? '3บน' : 'บน'), num, amt: top, ts });
-        if(bot > 0 && type === '2ตัว') currentBillEntries.push({ bill, type: 'ล่าง', num, amt: bot, ts });
+        if(top > 0) currentBillEntries.push({ bill, type: (type === '3ตัว' ? '3บน' : 'บน'), num, amt: top, ts: Date.now() });
+        if(bot > 0 && type === '2ตัว') currentBillEntries.push({ bill, type: 'ล่าง', num, amt: bot, ts: Date.now() });
         localStorage.setItem('cur_v12', JSON.stringify(currentBillEntries));
         showWorkingMode(true); document.getElementById('curBillTitle').innerText = bill; renderCurrentBill(); clearInputs();
     }
 
     function sendLineCurrent() { 
         let billName = document.getElementById('curBillTitle').innerText;
-        let message = `🧾 บิลหวย: ${billName}\n`;
-        message += `------------------\n`;
+        let message = `🧾 บิลหวย: ${billName}\n------------------\n`;
         document.querySelectorAll("#billBody tr").forEach(tr => {
             let num = tr.cells[0].innerText;
-            let topAmt = tr.cells[1].innerText;
-            let botAmt = tr.cells[2].innerText;
-            if(topAmt !== '-' && topAmt !== '0') message += `• ${num} ${num.length === 3 ? '[ตรง]' : '[บน]'} = ${topAmt} บ.\n`;
-            if(botAmt !== '-' && botAmt !== '0') message += `• ${num} [ล่าง] = ${botAmt} บ.\n`;
+            if(tr.cells[1].innerText !== '-' && tr.cells[1].innerText !== '0') message += `• ${num} ${num.length === 3 ? '[ตรง]' : '[บน]'} = ${tr.cells[1].innerText} บ.\n`;
+            if(tr.cells[2].innerText !== '-' && tr.cells[2].innerText !== '0') message += `• ${num} [ล่าง] = ${tr.cells[2].innerText} บ.\n`;
         });
-        message += `------------------\n`;
         let totalVal = document.getElementById('billSummaryBox').innerText.match(/ยอดรับสุทธิ: ([\d,]+)/)?.[1] || '0';
-        message += `💰 ยอดรวม: ${totalVal} บาท`;
+        message += `------------------\n💰 ยอดรวม: ${totalVal} บาท`;
         window.location.href = `line://msg/text/${encodeURIComponent(message)}`; 
     }
 
@@ -191,18 +180,18 @@
         let track = {}, grouped = {};
         currentBillEntries.forEach(item => {
             if(!grouped[item.num]) grouped[item.num] = { top:0, bot:0, rej:0 };
-            let key = item.num + item.type;
-            if(!track[key]) track[key] = entries.filter(e => e.num === item.num && e.type === item.type).reduce((s, e) => s + e.amt, 0);
-            let acc = Math.max(0, Math.min(item.amt, limit - track[key]));
+            let k = item.num + item.type;
+            if(!track[k]) track[k] = entries.filter(e => e.num === item.num && e.type === item.type).reduce((s, e) => s + e.amt, 0);
+            let acc = Math.max(0, Math.min(item.amt, limit - track[k]));
             if(item.type==='ล่าง') grouped[item.num].bot += acc; else grouped[item.num].top += acc;
-            grouped[item.num].rej += (item.amt - acc); total += acc; track[key] += item.amt;
-            let currentRate = limits.includes(item.num) ? 0.5 : 1;
-            if(item.type==='3บน'&&item.num===w3) totalWin += (acc * r3 * currentRate);
-            else if((item.type==='บน'&&item.num===w2t) || (item.type==='ล่าง'&&item.num===w2b)) totalWin += (acc * r2 * currentRate);
+            grouped[item.num].rej += (item.amt - acc); total += acc; track[k] += item.amt;
+            let rate = limits.includes(item.num) ? 0.5 : 1;
+            if(item.type==='3บน'&&item.num===w3) totalWin += (acc * r3 * rate);
+            else if((item.type==='บน'&&item.num===w2t) || (item.type==='ล่าง'&&item.num===w2b)) totalWin += (acc * r2 * rate);
         });
         for(let n in grouped) {
-            let isWin = (n === w3 || n === w2t || n === w2b);
-            body.innerHTML += `<tr class="${isWin ? 'text-danger' : ''}"><td><b>${n}</b></td><td>${grouped[n].top||'-'}</td><td>${grouped[n].bot||'-'}</td><td class="col-rej">${grouped[n].rej||'-'}</td><td class="no-print"><button class="btn-del" onclick="removeFromCurrent('${n}')">✕</button></td></tr>`;
+            let isW = (n === w3 || n === w2t || n === w2b);
+            body.innerHTML += `<tr class="${isW ? 'text-danger' : ''}"><td><b>${n}</b></td><td>${grouped[n].top||'-'}</td><td>${grouped[n].bot||'-'}</td><td class="col-rej">${grouped[n].rej||'-'}</td><td class="no-print"><button class="btn-del" onclick="removeFromCurrent('${n}')">✕</button></td></tr>`;
         }
         document.getElementById('billSummaryBox').innerHTML = `<div class="summary-line">ยอดรับสุทธิ: ${total.toLocaleString()} บ.</div><div class="summary-line text-success">ยอดถูกรางวัล: ${totalWin.toLocaleString()} บ.</div><div class="summary-line text-danger">คงเหลือ: ${(total - totalWin).toLocaleString()} บ.</div>`;
     }
@@ -232,13 +221,13 @@
             if(e.type === 'ล่าง') { globalTrack[e.num].bot += acc; globalTrack[e.num].sBot += e.amt; globalTrack[e.num].rBot += rej; } 
             else { globalTrack[e.num].top += acc; globalTrack[e.num].sTop += e.amt; globalTrack[e.num].rTop += rej; }
             totalAcc += acc; totalRej += rej;
-            let currentRate = limits.includes(e.num) ? 0.5 : 1;
-            if(e.type==='3บน'&&e.num===w3) totalGlobalWin += (acc * r3 * currentRate);
-            else if((e.type==='บน'&&e.num===w2t) || (e.type==='ล่าง'&&e.num===w2b)) totalGlobalWin += (acc * r2 * currentRate);
+            let rate = limits.includes(e.num) ? 0.5 : 1;
+            if(e.type==='3บน'&&e.num===w3) totalGlobalWin += (acc * r3 * rate);
+            else if((e.type==='บน'&&e.num===w2t) || (e.type==='ล่าง'&&e.num===w2b)) totalGlobalWin += (acc * r2 * rate);
         });
         for(let n in globalTrack) {
-            let isWin = (n === w3 || n === w2t || n === w2b);
-            sumBody.innerHTML += `<tr class="${isWin ? 'text-danger' : ''}"><td><b>${n}</b></td><td>${globalTrack[n].top||'-'}</td><td>${globalTrack[n].bot||'-'}</td><td class="col-rej">${(globalTrack[n].rTop + globalTrack[n].rBot)||'-'}</td></tr>`;
+            let isW = (n === w3 || n === w2t || n === w2b);
+            sumBody.innerHTML += `<tr class="${isW ? 'text-danger' : ''}"><td><b>${n}</b></td><td>${globalTrack[n].top||'-'}</td><td>${globalTrack[n].bot||'-'}</td><td class="col-rej">${(globalTrack[n].rTop + globalTrack[n].rBot)||'-'}</td></tr>`;
             if(globalTrack[n].rTop > 0) rejBody.innerHTML += `<tr><td>${n}</td><td>บน</td><td class="text-danger">${globalTrack[n].rTop}</td></tr>`;
             if(globalTrack[n].rBot > 0) rejBody.innerHTML += `<tr><td>${n}</td><td>ล่าง</td><td class="text-danger">${globalTrack[n].rBot}</td></tr>`;
         }
@@ -258,7 +247,7 @@
             let acc = Math.max(0, Math.min(e.amt, limit - track[k]));
             track[k] += e.amt;
             let winAmt = 0;
-            if((e.type==='3บน'&&e.num===w3)) winAmt = acc * r3;
+            if(e.type==='3บน'&&e.num===w3) winAmt = acc * r3;
             else if(e.type==='บน'&&e.num===w2t || e.type==='ล่าง'&&e.num===w2b) winAmt = acc * r2;
             if(winAmt > 0) {
                 if(limits.includes(e.num)) winAmt /= 2;
@@ -274,31 +263,12 @@
         renderAll();
     }
 
-    function finishBill() { if(!currentBillEntries.length) { showWorkingMode(false); return; } const id = "b_" + billCounter++; currentBillEntries.forEach(e => e.id = id); entries = [...entries, ...currentBillEntries]; currentBillEntries = []; localStorage.setItem('cur_v12', JSON.stringify([])); localStorage.setItem('bc_v12', billCounter); showWorkingMode(false); document.getElementById('billName').value = ''; renderAll(); }
     function editByName(name) { document.getElementById('billName').value = name; currentBillEntries = entries.filter(e => e.bill === name); entries = entries.filter(e => e.bill !== name); showWorkingMode(true); document.getElementById('curBillTitle').innerText = name; renderCurrentBill(); renderAll(); }
-    function toggleSettings() { document.getElementById('settingsArea').classList.toggle('hidden'); }
-    function limitNum(el) { let max = document.getElementById('lottoType').value === '3ตัว' ? 3 : 2; if(el.value.length > max) el.value = el.value.slice(0, max); }
-    function toggleLottoInputs() { const type = document.getElementById('lottoType').value; document.getElementById('lottoBottom').style.display = (type === '2ตัว') ? 'block' : 'none'; clearInputs(); }
+    function finishBill() { if(!currentBillEntries.length) { showWorkingMode(false); return; } currentBillEntries.forEach(e => e.id = "b_"+billCounter); entries = [...entries, ...currentBillEntries]; currentBillEntries = []; billCounter++; localStorage.setItem('cur_v12', '[]'); localStorage.setItem('bc_v12', billCounter); showWorkingMode(false); document.getElementById('billName').value = ''; renderAll(); }
     function removeFromCurrent(n) { currentBillEntries = currentBillEntries.filter(e => e.num !== n); if(!currentBillEntries.length) showWorkingMode(false); else renderCurrentBill(); }
     function editLast() { if(!currentBillEntries.length) return; let l = currentBillEntries.pop(); document.getElementById('lottoNum').value = l.num; document.getElementById('lottoTop').value = l.amt; renderCurrentBill(); }
     function clearAll() { if(confirm("ล้างข้อมูลทั้งหมด?")) { localStorage.clear(); location.reload(); } }
-    function sendLineAll() { let m = `🌸 สรุปยอดรวม\n`; document.querySelectorAll("#allBillsBody tr").forEach(tr => { m += `${tr.cells[0].innerText}: ${tr.cells[1].innerText}\n`; }); window.location.href = `line://msg/text/${encodeURIComponent(m + document.getElementById('globalSummaryBox').innerText)}`; }
     function sendRejectOnly() { let m = `🚫 ยอดดีดออกทั้งหมด\n━━━━━━\n`; document.querySelectorAll("#rejectTableBody tr").forEach(tr => { m += `❌ ${tr.cells[0].innerText} (${tr.cells[1].innerText}): ${tr.cells[2].innerText} บ.\n`; }); window.location.href = `line://msg/text/${encodeURIComponent(m + document.getElementById('rejectSummaryBox').innerText)}`; }
-</script>
-    <script>
-// โค้ดที่เพิ่มเข้าไปเพื่อเรียกใช้งาน sw.js
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js')
-      .then(reg => console.log('Service Worker Registered'))
-      .catch(err => console.log('Service Worker Failed', err));
-  });
-}
-</script>
-    <script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./sw.js');
-}
 </script>
 </body>
 </html>
