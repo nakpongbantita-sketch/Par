@@ -3,309 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Lotto Master - ระบบเจ้ามือ (Fixed Line Summary)</title>
-    <link rel="manifest" href="manifest.json">
-    <link rel="icon" href="icon.png" type="image/png">
-    <link rel="apple-touch-icon" href="icon.png">
-
-<script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('sw.js')
-                .then(reg => console.log('Service Worker Registered'))
-                .catch(err => console.log('Service Worker Failed', err));
-        });
-    }
-</script>
-  <style>
-        :root { --primary: #2563eb; --danger: #ef4444; --success: #22c55e; --dark: #1e293b; --light: #f8fafc; --line: #06c755; }
-        body { font-family: sans-serif; background: #f1f5f9; padding: 10px; margin: 0; color: var(--dark); }
-        .card { background: white; padding: 12px; border-radius: 12px; margin-bottom: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
-        h3 { margin: 0 0 10px 0; font-size: 14px; border-left: 4px solid var(--primary); padding-left: 8px; color: #475569; }
-        .grid-inputs { display: grid; grid-template-columns: 85px 1fr 1fr 65px; gap: 6px; margin-bottom: 8px; }
-        input, select { width: 100%; padding: 8px 10px; border: 1.5px solid #e2e8f0; border-radius: 8px; box-sizing: border-box; font-size: 14px; }
-        button { padding: 6px 8px; border: none; border-radius: 8px; background: var(--primary); color: white; font-weight: bold; cursor: pointer; font-size: 12px; }
-        .btn-dark { background: var(--dark); }
-        .btn-line { background: var(--line); }
+    <title>Lotto Master Pro 2026</title>
+    <style>
+        :root { --primary: #a78bfa; --danger: #fda4af; --success: #86efac; --dark: #4b5563; --bg: #f5f3ff; }
+        body { font-family: sans-serif; background: var(--bg); padding: 10px; margin: 0; color: var(--dark); }
+        .card { background: white; padding: 15px; border-radius: 20px; margin-bottom: 12px; box-shadow: 0 4px 15px rgba(167, 139, 250, 0.1); border: 1px solid #ede9fe; }
+        h3 { margin: 0 0 12px 0; font-size: 15px; color: #7c3aed; display: flex; align-items: center; justify-content: space-between; }
+        input, select { width: 100%; padding: 12px; border: 2px solid #f3e8ff; border-radius: 12px; box-sizing: border-box; font-size: 15px; margin-bottom: 8px; outline: none; }
+        button { padding: 12px 8px; border: none; border-radius: 12px; color: white; font-weight: bold; cursor: pointer; font-size: 13px; transition: 0.3s; }
+        .btn-primary { background: var(--primary); }
+        .btn-dark { background: #94a3b8; }
+        .btn-success { background: var(--success); color: #065f46; }
+        .btn-warning { background: #fbcfe8; color: #9d174d; }
+        .btn-line { background: #06c755; }
         .btn-print { background: #6366f1; }
-        .btn-del { background: var(--danger); padding: 2px 6px; font-size: 10px; border-radius: 4px; }
-        .limit-item { display: inline-flex; align-items: center; background: #f1f5f9; padding: 2px 8px; border-radius: 6px; margin: 2px; border: 1px solid #cbd5e1; font-size: 12px; }
-        .limit-del { color: var(--danger); margin-left: 5px; cursor: pointer; font-weight: bold; }
-        .action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 5px; background: white; border-radius: 8px; overflow: hidden; font-size: 13px; }
-        th { background: #f8fafc; padding: 8px; color: #64748b; border-bottom: 1px solid #e2e8f0; text-align: center; }
-        td { padding: 8px; text-align: center; border-bottom: 1px solid #f8fafc; }
-        .text-danger { color: var(--danger); font-weight: bold; }
-        .text-success { color: var(--success); font-weight: bold; }
-        .stat-card { background: #f0fdf4; padding: 10px; border-radius: 10px; border: 1.5px solid var(--success); text-align: center; margin-top: 8px; }
-        .stat-value { font-size: 20px; font-weight: 800; }
-        .reject-box { background: #fff1f2; border: 1px dashed var(--danger); padding: 8px; border-radius: 8px; margin-top: 8px; font-size: 12px; }
-        #winSummaryBox { background: #fff7ed; border: 1.5px solid #fed7aa; padding: 12px; border-radius: 10px; margin-top: 10px; display: none; }
-        .win-row { border-bottom: 1px dashed #fed7aa; padding: 6px 0; display: flex; justify-content: space-between; font-size: 13px; }
-        .modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; }
-        .modal-content { background:white; margin:15px; padding:15px; border-radius:12px; max-height:80vh; overflow-y:auto; }
-        @media print { .no-print { display: none !important; } .card { box-shadow: none; border: 1px solid #eee; } }
+        .btn-reject { background: #f43f5e; }
+        .btn-del { background: var(--danger); padding: 4px 8px; font-size: 11px; color: #9f1239; border-radius: 8px; }
+        .input-row { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 5px; margin-bottom: 10px; }
+        .btn-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 5px; }
+        .action-right { display: flex; justify-content: flex-end; gap: 8px; margin-top: 12px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 8px; background: white; border-radius: 15px; overflow: hidden; font-size: 14px; }
+        th { background: #fdf2f8; padding: 10px; color: #be185d; }
+        td { padding: 10px; text-align: center; border-bottom: 1px solid #f5f3ff; }
+        .summary-box { background: #fdf2f8; padding: 12px; border-radius: 15px; margin-top: 10px; border: 1px solid #fbcfe8; }
+        .summary-line { display: block; text-align: right; padding: 4px 0; font-weight: bold; font-size: 15px; }
+        .bill-link { color: #7c3aed; cursor: pointer; font-weight: bold; text-decoration: none; }
+        .text-danger { color: #e11d48; font-weight: bold; }
+        .text-success { color: #059669; font-weight: bold; }
+        .hidden { display: none !important; }
+        @media print { 
+            body { background: white; padding: 0; }
+            .no-print, .col-rej, .rej-line, .btn-del, .action-right, .card:has(h3:contains("ตั้งค่า")), .card:has(h3:contains("จดรายการใหม่")), #settingsArea, input, select, .btn-grid { display: none !important; } 
+            .card { box-shadow: none !important; border: none !important; margin: 0; padding: 10px; width: 100%; display: block !important; }
+            h3 { font-size: 18px; color: black; border-bottom: 1px solid #000; padding-bottom: 5px; }
+            table { border: 1px solid #000; margin-top: 10px; width: 100%; }
+            th { background: #eee !important; color: black !important; border: 1px solid #000; }
+            td { border: 1px solid #000; color: black !important; }
+            .summary-box { border: 1px solid #000; background: none !important; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="card no-print" style="background: #eef2ff; border: 1px solid #c7d2fe;">
-        <h3>📁 บันทึกและดูย้อนหลัง</h3>
-        <input type="text" id="periodName" placeholder="ระบุชื่องวด เช่น 16 มี.ค. 69" style="margin-bottom:8px;">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-            <button onclick="saveToHistory()" style="background: #4f46e5;">💾 บันทึกงวดนี้</button>
-            <button onclick="showHistory()" class="btn-dark">📜 ดูประวัติ</button>
+    <div class="card no-print">
+        <h3 onclick="toggleSettings()" style="cursor:pointer">ตั้งค่า <span>▼</span></h3>
+        <div id="settingsArea" class="hidden">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div><small>2 ตัว (บาทละ):</small><input type="number" id="rate2" value="65"></div>
+                <div><small>3 ตัว (บาทละ):</small><input type="number" id="rate3" value="500"></div>
+            </div>
+            <div><small>เพดานสูงสุด (บาท/เลข):</small><input type="number" id="globalLimit" value="750" oninput="renderAll()"></div>
+            <div><small>เลขอั้น (จ่ายครึ่ง เช่น 12,34):</small><input type="text" id="limitNumbers" placeholder="12,34" oninput="renderAll()"></div>
         </div>
     </div>
 
     <div class="card no-print">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-            <div><small>2 ตัว (บาทละ):</small><input type="number" id="rate2" value="90"></div>
-            <div><small>3 ตัวบน (บาทละ):</small><input type="number" id="rate3" value="500"></div>
+        <h3>จดรายการใหม่</h3>
+        <input type="text" id="billName" placeholder="ชื่อลูกค้า">
+        <div class="input-row">
+            <select id="lottoType" onchange="toggleLottoInputs()">
+                <option value="3ตัว">3 ตัว</option>
+                <option value="2ตัว">2 ตัว</option>
+            </select>
+            <input type="number" id="lottoNum" placeholder="เลข" oninput="limitNum(this)">
+            <input type="number" id="lottoTop" placeholder="บน">
+            <input type="number" id="lottoBottom" placeholder="ล่าง" style="display:none;">
+        </div>
+        <div class="btn-grid">
+            <button onclick="addLotto()" class="btn-primary">เพิ่ม</button>
+            <button onclick="editLast()" class="btn-warning">แก้ไข</button>
+            <button onclick="clearInputs()" class="btn-dark">ยกเลิก</button>
+            <button onclick="finishBill()" class="btn-success">บันทึก</button>
         </div>
     </div>
 
-    <div class="card no-print">
-        <h3>🚫 ตั้งค่าเลขอั้น</h3>
-        <div class="grid-inputs">
-            <select id="specType" onchange="document.getElementById('specNum').value=''"><option value="3บน">3บน</option><option value="บน">บน</option><option value="ล่าง">ล่าง</option></select>
-            <input type="number" id="specNum" placeholder="เลข" oninput="validateInput(this)">
-            <input type="number" id="specLimit" placeholder="บาท">
-            <button onclick="addLimit()">บันทึก</button>
-        </div>
-        <div id="limitList"></div>
-    </div>
-
-    <div class="card no-print">
-        <h3>📝 จดรายการหวย</h3>
-        <div class="grid-inputs">
-            <select id="lottoType" onchange="document.getElementById('lottoNum').value=''"><option value="3บน">3บน</option><option value="บน">บน</option><option value="ล่าง">ล่าง</option></select>
-            <input type="number" id="lottoNum" placeholder="เลข" oninput="validateInput(this)">
-            <input type="number" id="lottoAmt" placeholder="บาท">
-            <button onclick="addLotto()" class="btn-dark">เพิ่ม</button>
+    <div class="card" id="currentBillCard" style="display:none;">
+        <h3>บิล: <span id="curBillTitle"></span></h3>
+        <table>
+            <thead><tr><th>เลข</th><th>บน</th><th>ล่าง</th><th class="col-rej">ดีด</th><th class="no-print">ลบ</th></tr></thead>
+            <tbody id="billBody"></tbody>
+        </table>
+        <div class="summary-box" id="billSummaryBox"></div>
+        <div class="no-print action-right">
+            <button onclick="sendLineCurrent()" class="btn-line">Line</button>
+            <button onclick="window.print()" class="btn-print">ปริ้น</button>
+            <button onclick="finishBill()" class="btn-dark">ย้อนกลับ</button>
         </div>
     </div>
 
-    <div id="printArea">
+    <div id="historySection">
         <div class="card">
-            <h3>🟣 รายการ: 3 ตัวบน</h3>
+            <h3>ประวัติลูกค้า</h3>
             <table>
-                <thead><tr><th>เลข</th><th>ซื้อ</th><th>รับจริง</th><th>ดีดออก</th><th class="no-print">ลบ</th></tr></thead>
-                <tbody id="table3Top"></tbody>
+                <thead><tr><th style="text-align:left; padding-left:15px;">ชื่อบิล</th><th style="text-align:right; padding-right:15px;">ยอดสุทธิ</th></tr></thead>
+                <tbody id="allBillsBody"></tbody>
             </table>
         </div>
+
         <div class="card">
-            <h3>🔵 รายการ: 2 ตัวบน</h3>
+            <h3>รายการรวม</h3>
             <table>
-                <thead><tr><th>เลข</th><th>ซื้อ</th><th>รับจริง</th><th>ดีดออก</th><th class="no-print">ลบ</th></tr></thead>
-                <tbody id="table2Top"></tbody>
+                <thead><tr><th>เลข</th><th>บน</th><th>ล่าง</th><th class="col-rej">ดีด</th></tr></thead>
+                <tbody id="summaryBody"></tbody>
             </table>
+            <div class="summary-box" id="globalSummaryBox"></div>
+            <div class="no-print action-right">
+                <button onclick="sendLineAll()" class="btn-line">ส่ง Line</button>
+                <button onclick="window.print()" class="btn-print">ปริ้น</button>
+            </div>
         </div>
+
         <div class="card">
-            <h3>🟠 รายการ: 2 ตัวล่าง</h3>
+            <h3>รายการดีดออกรวม</h3>
             <table>
-                <thead><tr><th>เลข</th><th>ซื้อ</th><th>รับจริง</th><th>ดีดออก</th><th class="no-print">ลบ</th></tr></thead>
-                <tbody id="table2Bottom"></tbody>
+                <thead><tr><th>เลข</th><th>ประเภท</th><th>ยอดดีด</th></tr></thead>
+                <tbody id="rejectTableBody"></tbody>
             </table>
-            <div class="stat-card">
-                <div id="sumTotalAccept" class="stat-value text-success">0</div>
-            </div>
-            <div class="reject-box">
-                <b>📍 ดีดออกรวม: <span id="statTotalReject">0</span></b><br>
-                <span id="rejectDetailList" style="color: #ef4444;">ไม่มี</span>
+            <div class="summary-box" id="rejectSummaryBox"></div>
+            <div class="no-print action-right">
+                <button onclick="sendRejectOnly()" class="btn-reject" style="width: 100%;">ส่งยอดดีดไป Line</button>
             </div>
         </div>
-    </div>
 
-    <div class="card no-print">
-        <h3>📤 ส่งออกข้อมูล</h3>
-        <div class="action-grid">
-            <button onclick="sendLine()" class="btn-line">ส่งสรุปเข้า Line</button>
-            <button onclick="window.print()" class="btn-print">สั่งปริ้น / บันทึก PDF</button>
-        </div>
-    </div>
-
-    <div class="card no-print">
-        <h3>💰 ตรวจรางวัล</h3>
-        <div class="grid-inputs" style="grid-template-columns: 1fr 1fr 1fr 70px;">
-            <input type="number" id="win3Top" placeholder="3บน">
-            <input type="number" id="win2Top" placeholder="บน">
-            <input type="number" id="win2Bottom" placeholder="ล่าง">
-            <button onclick="checkWin()" class="btn-dark">ตรวจ</button>
-        </div>
-        <div id="winSummaryBox">
-            <div id="winDetails"></div>
-            <hr style="border:0; border-top:1px solid #fed7aa; margin:10px 0;">
-            <div style="display:flex; justify-content:space-between; align-items:center;">
-                <span style="font-weight:bold;">ต้องจ่ายจริง:</span>
-                <span id="totalPayOut" class="text-danger" style="font-size:22px; font-weight:800;">0</span>
+        <div class="card no-print">
+            <h3>ตรวจรางวัล</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 60px; gap: 8px;">
+                <input type="number" id="win3T" placeholder="3บน"><input type="number" id="win2T" placeholder="บน"><input type="number" id="win2B" placeholder="ล่าง">
+                <button onclick="checkWin()" class="btn-dark">ตรวจ</button>
             </div>
-        </div>
-        <button onclick="clearAll()" style="margin-top:15px; background:none; color:#94a3b8; width:100%; border:1px solid #cbd5e1; padding:6px; border-radius:8px; font-size:11px;">ล้างข้อมูลใหม่ทั้งหมด</button>
-    </div>
-
-    <div id="historyModal" class="modal no-print">
-        <div class="modal-content">
-            <h3>📜 ประวัติที่บันทึกไว้</h3>
-            <div id="historyList"></div>
-            <button onclick="document.getElementById('historyModal').style.display='none'" class="btn-dark" style="width:100%; margin-top:10px;">ปิด</button>
+            <div id="winDisplayArea" style="display:none; margin-top: 15px;">
+                <table><thead><tr><th>ชื่อลูกค้า</th><th>เลขที่ถูก</th><th>ได้รับ</th></tr></thead><tbody id="winBody"></tbody></table>
+            </div>
+            <button onclick="clearAll()" style="width:100%; margin-top:20px; background:none; color:#94a3b8; border:1px solid #ccc; font-size:11px;">ล้างข้อมูลทั้งหมด</button>
         </div>
     </div>
 
 <script>
-    let entries = JSON.parse(localStorage.getItem('entries_final')) || [];
-    let customLimits = JSON.parse(localStorage.getItem('limits_final')) || {};
-    let historyData = JSON.parse(localStorage.getItem('history_final')) || [];
-    const DEFAULT_LIMIT = 500;
+    let entries = JSON.parse(localStorage.getItem('ent_v12')) || [];
+    let currentBillEntries = JSON.parse(localStorage.getItem('cur_v12')) || [];
+    let billCounter = parseInt(localStorage.getItem('bc_v12')) || 1;
 
-    function validateInput(el) {
-        const typeId = (el.id === 'specNum') ? 'specType' : 'lottoType';
-        const type = document.getElementById(typeId).value;
-        const max = (type === '3บน') ? 3 : 2;
-        if (el.value.length > max) el.value = el.value.slice(0, max);
-    }
+    window.onload = function() {
+        if(currentBillEntries.length > 0) { showWorkingMode(true); document.getElementById('curBillTitle').innerText = currentBillEntries[0].bill; renderCurrentBill(); }
+        renderAll();
+    };
 
-    function checkFullDigits(type, num) {
-        const required = (type === '3บน') ? 3 : 2;
-        if (num.length < required) { alert(`กรุณาใส่เลขให้ครบ ${required} หลัก`); return false; }
-        return true;
-    }
-
-    function addLimit() {
-        const type = document.getElementById('specType').value;
-        const num = document.getElementById('specNum').value;
-        const limit = document.getElementById('specLimit').value;
-        if(num && limit) {
-            if(!checkFullDigits(type, num)) return;
-            customLimits[type + "_" + num] = parseInt(limit);
-            localStorage.setItem('limits_final', JSON.stringify(customLimits));
-            renderLimits(); saveAndRender();
-            document.getElementById('specNum').value = ''; document.getElementById('specLimit').value = '';
-        }
-    }
-
-    function removeLimit(key) {
-        delete customLimits[key];
-        localStorage.setItem('limits_final', JSON.stringify(customLimits));
-        renderLimits(); saveAndRender();
-    }
-
-    function renderLimits() {
-        const container = document.getElementById('limitList');
-        container.innerHTML = "";
-        for(let key in customLimits) {
-            let [t, n] = key.split('_');
-            const item = document.createElement('span');
-            item.className = 'limit-item';
-            item.innerHTML = `${t}${n}(${customLimits[key]}) <span class="limit-del" onclick="removeLimit('${key}')">✕</span>`;
-            container.appendChild(item);
-        }
-    }
+    function showWorkingMode(isWorking) { document.getElementById('currentBillCard').style.display = isWorking ? 'block' : 'none'; document.getElementById('historySection').style.display = isWorking ? 'none' : 'block'; }
+    function clearInputs() { document.getElementById('lottoNum').value = ''; document.getElementById('lottoTop').value = ''; document.getElementById('lottoBottom').value = ''; document.getElementById('lottoNum').focus(); }
 
     function addLotto() {
-        const type = document.getElementById('lottoType').value;
-        const num = document.getElementById('lottoNum').value;
-        const amt = parseInt(document.getElementById('lottoAmt').value);
-        if(!num || isNaN(amt)) return;
-        if(!checkFullDigits(type, num)) return;
-        let existing = entries.find(i => i.num === num && i.type === type);
-        if (existing) existing.amt += amt; else entries.push({ type, num, amt, win: false });
-        saveAndRender();
-        document.getElementById('lottoNum').value = ''; document.getElementById('lottoAmt').value = '';
-        document.getElementById('lottoNum').focus();
+        const bill = document.getElementById('billName').value; if(!bill) return alert("ระบุชื่อลูกค้า");
+        const type = document.getElementById('lottoType').value, num = document.getElementById('lottoNum').value;
+        const top = parseInt(document.getElementById('lottoTop').value) || 0, bot = parseInt(document.getElementById('lottoBottom').value) || 0;
+        if(!num) return;
+        const ts = Date.now();
+        if(top > 0) currentBillEntries.push({ bill, type: (type === '3ตัว' ? '3บน' : 'บน'), num, amt: top, ts });
+        if(bot > 0 && type === '2ตัว') currentBillEntries.push({ bill, type: 'ล่าง', num, amt: bot, ts });
+        localStorage.setItem('cur_v12', JSON.stringify(currentBillEntries));
+        showWorkingMode(true); document.getElementById('curBillTitle').innerText = bill; renderCurrentBill(); clearInputs();
     }
 
-    function saveAndRender() {
-        localStorage.setItem('entries_final', JSON.stringify(entries));
-        const t3 = document.getElementById('table3Top'), t2T = document.getElementById('table2Top'), t2B = document.getElementById('table2Bottom');
-        t3.innerHTML = ''; t2T.innerHTML = ''; t2B.innerHTML = '';
-        let stats = { totalAccept: 0, totalReject: 0 }; let rejectItems = [];
-
-        entries.forEach((item, index) => {
-            const limit = customLimits[item.type + "_" + item.num] || DEFAULT_LIMIT;
-            let accepted = Math.min(item.amt, limit), rejected = Math.max(0, item.amt - limit);
-            const tr = document.createElement('tr');
-            if(item.win) tr.style.backgroundColor = '#fef3c7';
-            tr.innerHTML = `<td><b class="${item.win ? 'text-danger' : ''}">${item.num}</b></td><td>${item.amt}</td><td class="text-success">${accepted}</td><td class="${rejected > 0 ? 'text-danger' : ''}">${rejected || '-'}</td><td class="no-print"><button onclick="deleteEntry(${index})" class="btn-del">✕</button></td>`;
-            if(item.type === '3บน') t3.appendChild(tr);
-            else if(item.type === 'บน') t2T.appendChild(tr);
-            else if(item.type === 'ล่าง') t2B.appendChild(tr);
-            stats.totalAccept += accepted; stats.totalReject += rejected;
-            if(rejected > 0) rejectItems.push(`${item.type}${item.num}=${rejected}`);
+    function sendLineCurrent() { 
+        let billName = document.getElementById('curBillTitle').innerText;
+        let message = `🧾 บิลหวย: ${billName}\n`;
+        message += `------------------\n`;
+        document.querySelectorAll("#billBody tr").forEach(tr => {
+            let num = tr.cells[0].innerText;
+            let topAmt = tr.cells[1].innerText;
+            let botAmt = tr.cells[2].innerText;
+            if(topAmt !== '-' && topAmt !== '0') message += `• ${num} ${num.length === 3 ? '[ตรง]' : '[บน]'} = ${topAmt} บ.\n`;
+            if(botAmt !== '-' && botAmt !== '0') message += `• ${num} [ล่าง] = ${botAmt} บ.\n`;
         });
-        document.getElementById('sumTotalAccept').innerText = stats.totalAccept.toLocaleString();
-        document.getElementById('statTotalReject').innerText = stats.totalReject.toLocaleString();
-        document.getElementById('rejectDetailList').innerText = rejectItems.join(', ') || 'ไม่มี';
+        message += `------------------\n`;
+        let totalVal = document.getElementById('billSummaryBox').innerText.match(/ยอดรับสุทธิ: ([\d,]+)/)?.[1] || '0';
+        message += `💰 ยอดรวม: ${totalVal} บาท`;
+        window.location.href = `line://msg/text/${encodeURIComponent(message)}`; 
+    }
+
+    function renderCurrentBill() {
+        const body = document.getElementById('billBody'); body.innerHTML = '';
+        const r2 = parseInt(document.getElementById('rate2').value)||0, r3 = parseInt(document.getElementById('rate3').value)||0;
+        const w3 = document.getElementById('win3T').value, w2t = document.getElementById('win2T').value, w2b = document.getElementById('win2B').value;
+        const limits = document.getElementById('limitNumbers').value.split(',').map(s => s.trim());
+        let total = 0, totalWin = 0, limit = parseInt(document.getElementById('globalLimit').value) || 750;
+        let track = {}, grouped = {};
+        currentBillEntries.forEach(item => {
+            if(!grouped[item.num]) grouped[item.num] = { top:0, bot:0, rej:0 };
+            let key = item.num + item.type;
+            if(!track[key]) track[key] = entries.filter(e => e.num === item.num && e.type === item.type).reduce((s, e) => s + e.amt, 0);
+            let acc = Math.max(0, Math.min(item.amt, limit - track[key]));
+            if(item.type==='ล่าง') grouped[item.num].bot += acc; else grouped[item.num].top += acc;
+            grouped[item.num].rej += (item.amt - acc); total += acc; track[key] += item.amt;
+            let currentRate = limits.includes(item.num) ? 0.5 : 1;
+            if(item.type==='3บน'&&item.num===w3) totalWin += (acc * r3 * currentRate);
+            else if((item.type==='บน'&&item.num===w2t) || (item.type==='ล่าง'&&item.num===w2b)) totalWin += (acc * r2 * currentRate);
+        });
+        for(let n in grouped) {
+            let isWin = (n === w3 || n === w2t || n === w2b);
+            body.innerHTML += `<tr class="${isWin ? 'text-danger' : ''}"><td><b>${n}</b></td><td>${grouped[n].top||'-'}</td><td>${grouped[n].bot||'-'}</td><td class="col-rej">${grouped[n].rej||'-'}</td><td class="no-print"><button class="btn-del" onclick="removeFromCurrent('${n}')">✕</button></td></tr>`;
+        }
+        document.getElementById('billSummaryBox').innerHTML = `<div class="summary-line">ยอดรับสุทธิ: ${total.toLocaleString()} บ.</div><div class="summary-line text-success">ยอดถูกรางวัล: ${totalWin.toLocaleString()} บ.</div><div class="summary-line text-danger">คงเหลือ: ${(total - totalWin).toLocaleString()} บ.</div>`;
+    }
+
+    function renderAll() {
+        localStorage.setItem('ent_v12', JSON.stringify(entries));
+        const limit = parseInt(document.getElementById('globalLimit').value) || 750;
+        const r2 = parseInt(document.getElementById('rate2').value)||0, r3 = parseInt(document.getElementById('rate3').value)||0;
+        const w3 = document.getElementById('win3T').value, w2t = document.getElementById('win2T').value, w2b = document.getElementById('win2B').value;
+        const limits = document.getElementById('limitNumbers').value.split(',').map(s => s.trim());
+        const billsBody = document.getElementById('allBillsBody'); billsBody.innerHTML = '';
+        let billsData = {};
+        entries.forEach(e => {
+            if(!billsData[e.bill]) billsData[e.bill] = { total: 0 };
+            let accTrack = entries.slice(0, entries.indexOf(e)).filter(x => x.num === e.num && x.type === e.type).reduce((s, x) => s + x.amt, 0);
+            billsData[e.bill].total += Math.max(0, Math.min(e.amt, limit - accTrack));
+        });
+        for(let name in billsData) billsBody.innerHTML += `<tr><td style="padding-left:15px;"><span class="bill-link" onclick="editByName('${name}')">👤 ${name}</span></td><td style="text-align:right; padding-right:15px;"><b>${billsData[name].total.toLocaleString()}</b></td></tr>`;
+        const sumBody = document.getElementById('summaryBody'); sumBody.innerHTML = '';
+        const rejBody = document.getElementById('rejectTableBody'); rejBody.innerHTML = '';
+        let globalTrack = {}, totalAcc = 0, totalGlobalWin = 0, totalRej = 0;
+        entries.forEach(e => {
+            if(!globalTrack[e.num]) globalTrack[e.num] = { top:0, bot:0, rTop:0, rBot:0, sTop:0, sBot:0 };
+            let curSum = (e.type === 'ล่าง') ? globalTrack[e.num].sBot : globalTrack[e.num].sTop;
+            let acc = Math.max(0, Math.min(e.amt, limit - curSum));
+            let rej = e.amt - acc;
+            if(e.type === 'ล่าง') { globalTrack[e.num].bot += acc; globalTrack[e.num].sBot += e.amt; globalTrack[e.num].rBot += rej; } 
+            else { globalTrack[e.num].top += acc; globalTrack[e.num].sTop += e.amt; globalTrack[e.num].rTop += rej; }
+            totalAcc += acc; totalRej += rej;
+            let currentRate = limits.includes(e.num) ? 0.5 : 1;
+            if(e.type==='3บน'&&e.num===w3) totalGlobalWin += (acc * r3 * currentRate);
+            else if((e.type==='บน'&&e.num===w2t) || (e.type==='ล่าง'&&e.num===w2b)) totalGlobalWin += (acc * r2 * currentRate);
+        });
+        for(let n in globalTrack) {
+            let isWin = (n === w3 || n === w2t || n === w2b);
+            sumBody.innerHTML += `<tr class="${isWin ? 'text-danger' : ''}"><td><b>${n}</b></td><td>${globalTrack[n].top||'-'}</td><td>${globalTrack[n].bot||'-'}</td><td class="col-rej">${(globalTrack[n].rTop + globalTrack[n].rBot)||'-'}</td></tr>`;
+            if(globalTrack[n].rTop > 0) rejBody.innerHTML += `<tr><td>${n}</td><td>บน</td><td class="text-danger">${globalTrack[n].rTop}</td></tr>`;
+            if(globalTrack[n].rBot > 0) rejBody.innerHTML += `<tr><td>${n}</td><td>ล่าง</td><td class="text-danger">${globalTrack[n].rBot}</td></tr>`;
+        }
+        document.getElementById('globalSummaryBox').innerHTML = `<div class="summary-line">ยอดรับรวม: ${totalAcc.toLocaleString()} บ.</div><div class="summary-line text-success">ยอดถูกรวม: ${totalGlobalWin.toLocaleString()} บ.</div><div class="summary-line text-danger">คงเหลือรวม: ${(totalAcc - totalGlobalWin).toLocaleString()} บ.</div>`;
+        document.getElementById('rejectSummaryBox').innerHTML = `<div class="summary-line text-danger">ยอดดีดออกรวมทั้งหมด: ${totalRej.toLocaleString()} บ.</div>`;
     }
 
     function checkWin() {
-        const w3T = document.getElementById('win3Top').value, w2T = document.getElementById('win2Top').value, w2B = document.getElementById('win2Bottom').value;
-        const r2 = parseInt(document.getElementById('rate2').value), r3 = parseInt(document.getElementById('rate3').value);
-        let total = 0, html = "";
-        entries.forEach(item => {
-            let win = (item.type === '3บน' && item.num === w3T) || (item.type === 'บน' && item.num === w2T) || (item.type === 'ล่าง' && item.num === w2B);
-            if(win && (w3T || w2T || w2B)) {
-                item.win = true;
-                let payout = Math.min(item.amt, customLimits[item.type+"_"+item.num] || DEFAULT_LIMIT) * (item.type === '3บน' ? r3 : r2);
-                total += payout;
-                html += `<div class="win-row"><span>✅ ${item.type} <b>${item.num}</b></span><span class="text-danger">${payout.toLocaleString()}</span></div>`;
-            } else item.win = false;
+        const w3 = document.getElementById('win3T').value, w2t = document.getElementById('win2T').value, w2b = document.getElementById('win2B').value;
+        const r2 = parseInt(document.getElementById('rate2').value)||0, r3 = parseInt(document.getElementById('rate3').value)||0;
+        const limit = parseInt(document.getElementById('globalLimit').value)||750;
+        const limits = document.getElementById('limitNumbers').value.split(',').map(s => s.trim());
+        const winBody = document.getElementById('winBody'); winBody.innerHTML = '';
+        let winGroup = {}, track = {};
+        entries.forEach(e => {
+            let k = e.num + e.type; if(!track[k]) track[k] = 0;
+            let acc = Math.max(0, Math.min(e.amt, limit - track[k]));
+            track[k] += e.amt;
+            let winAmt = 0;
+            if((e.type==='3บน'&&e.num===w3)) winAmt = acc * r3;
+            else if(e.type==='บน'&&e.num===w2t || e.type==='ล่าง'&&e.num===w2b) winAmt = acc * r2;
+            if(winAmt > 0) {
+                if(limits.includes(e.num)) winAmt /= 2;
+                if(!winGroup[e.bill]) winGroup[e.bill] = [];
+                winGroup[e.bill].push({ n: e.num, t: e.type, a: winAmt });
+            }
         });
-        document.getElementById('winSummaryBox').style.display = 'block';
-        document.getElementById('winDetails').innerHTML = html || "ไม่ถูกรางวัล";
-        document.getElementById('totalPayOut').innerText = total.toLocaleString();
-        saveAndRender();
-    }
-
-    function sendLine() {
-        const period = document.getElementById('periodName').value || 'สรุปยอดหวย';
-        const totalAccept = document.getElementById('sumTotalAccept').innerText;
-        const totalReject = document.getElementById('statTotalReject').innerText;
-        const rejectList = document.getElementById('rejectDetailList').innerText;
-
-        let text = `📌 งวด: ${period}\n`;
-        text += `------------------\n`;
-        entries.forEach(i => {
-            const limit = customLimits[i.type + "_" + i.num] || DEFAULT_LIMIT;
-            const acc = Math.min(i.amt, limit);
-            text += `${i.type} ${i.num} = ${acc} บ.\n`;
-        });
-        text += `------------------\n`;
-        text += `💰 ยอดรับรวม: ${totalAccept} บ.\n`;
-        text += `❌ ดีดออกรวม: ${totalReject} บ.\n`;
-        if(rejectList !== 'ไม่มี') {
-            text += `📍 รายละเอียดเลขดีด: ${rejectList}\n`;
+        for(let name in winGroup) {
+            let sum = winGroup[name].reduce((s,v)=>s+v.a,0);
+            winBody.innerHTML += `<tr><td><span class="bill-link" onclick="editByName('${name}')">👤 ${name}</span></td><td class="text-danger">${winGroup[name].map(x=>x.n+'('+x.t+')').join(', ')}</td><td class="text-success">${sum.toLocaleString()}</td></tr>`;
         }
-        
-        window.location.href = `line://msg/text/${encodeURIComponent(text)}`;
+        document.getElementById('winDisplayArea').style.display = Object.keys(winGroup).length ? 'block' : 'none';
+        renderAll();
     }
 
-    function saveToHistory() {
-        const name = document.getElementById('periodName').value;
-        if(!name) { alert("ใส่ชื่องวดด้วยครับ"); return; }
-        const data = { name, entries: [...entries], limits: {...customLimits}, total: document.getElementById('sumTotalAccept').innerText, payout: document.getElementById('totalPayOut').innerText, date: new Date().toLocaleString() };
-        historyData.unshift(data);
-        localStorage.setItem('history_final', JSON.stringify(historyData));
-        alert("บันทึกเรียบร้อย!");
-    }
-
-    function showHistory() {
-        const list = document.getElementById('historyList');
-        list.innerHTML = historyData.length ? "" : "ไม่มีประวัติ";
-        historyData.forEach((h, idx) => {
-            list.innerHTML += `<div style="border-bottom:1px solid #eee; padding:10px 0; display:flex; justify-content:space-between; align-items:center;">
-                <div><b>${h.name}</b><br><small>${h.date}</small></div>
-                <div style="font-size:12px;">รับ: <span class="text-success">${h.total}</span> จ่าย: <span class="text-danger">${h.payout}</span></div>
-                <button onclick="deleteHistory(${idx})" class="btn-del">ลบ</button>
-            </div>`;
-        });
-        document.getElementById('historyModal').style.display = 'block';
-    }
-
-    function deleteHistory(idx) { if(confirm("ลบ?")) { historyData.splice(idx,1); localStorage.setItem('history_final', JSON.stringify(historyData)); showHistory(); } }
-    function deleteEntry(idx) { entries.splice(idx,1); saveAndRender(); }
-    function clearAll() { if(confirm("ล้างใหม่?")) { localStorage.removeItem('entries_final'); location.reload(); } }
-    renderLimits(); saveAndRender();
+    function finishBill() { if(!currentBillEntries.length) { showWorkingMode(false); return; } const id = "b_" + billCounter++; currentBillEntries.forEach(e => e.id = id); entries = [...entries, ...currentBillEntries]; currentBillEntries = []; localStorage.setItem('cur_v12', JSON.stringify([])); localStorage.setItem('bc_v12', billCounter); showWorkingMode(false); document.getElementById('billName').value = ''; renderAll(); }
+    function editByName(name) { document.getElementById('billName').value = name; currentBillEntries = entries.filter(e => e.bill === name); entries = entries.filter(e => e.bill !== name); showWorkingMode(true); document.getElementById('curBillTitle').innerText = name; renderCurrentBill(); renderAll(); }
+    function toggleSettings() { document.getElementById('settingsArea').classList.toggle('hidden'); }
+    function limitNum(el) { let max = document.getElementById('lottoType').value === '3ตัว' ? 3 : 2; if(el.value.length > max) el.value = el.value.slice(0, max); }
+    function toggleLottoInputs() { const type = document.getElementById('lottoType').value; document.getElementById('lottoBottom').style.display = (type === '2ตัว') ? 'block' : 'none'; clearInputs(); }
+    function removeFromCurrent(n) { currentBillEntries = currentBillEntries.filter(e => e.num !== n); if(!currentBillEntries.length) showWorkingMode(false); else renderCurrentBill(); }
+    function editLast() { if(!currentBillEntries.length) return; let l = currentBillEntries.pop(); document.getElementById('lottoNum').value = l.num; document.getElementById('lottoTop').value = l.amt; renderCurrentBill(); }
+    function clearAll() { if(confirm("ล้างข้อมูลทั้งหมด?")) { localStorage.clear(); location.reload(); } }
+    function sendLineAll() { let m = `🌸 สรุปยอดรวม\n`; document.querySelectorAll("#allBillsBody tr").forEach(tr => { m += `${tr.cells[0].innerText}: ${tr.cells[1].innerText}\n`; }); window.location.href = `line://msg/text/${encodeURIComponent(m + document.getElementById('globalSummaryBox').innerText)}`; }
+    function sendRejectOnly() { let m = `🚫 ยอดดีดออกทั้งหมด\n━━━━━━\n`; document.querySelectorAll("#rejectTableBody tr").forEach(tr => { m += `❌ ${tr.cells[0].innerText} (${tr.cells[1].innerText}): ${tr.cells[2].innerText} บ.\n`; }); window.location.href = `line://msg/text/${encodeURIComponent(m + document.getElementById('rejectSummaryBox').innerText)}`; }
+</script>
+    <script>
+// โค้ดที่เพิ่มเข้าไปเพื่อเรียกใช้งาน sw.js
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(reg => console.log('Service Worker Registered'))
+      .catch(err => console.log('Service Worker Failed', err));
+  });
+}
 </script>
 </body>
 </html>
